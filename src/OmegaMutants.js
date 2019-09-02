@@ -6,7 +6,7 @@ class OmegaMutants extends Component {
     render() {
         return (
             <div className="OmegaList">
-                <h1 class ="display-1 text-center">Confirmed Omegas</h1>
+                <h1 className ="display-1 text-center">Confirmed Omegas</h1>
                 <div className="container">
                     <div className="row">
                         {this.props.omegas.map(o => (
