@@ -1,8 +1,6 @@
 import  React, { Component } from 'react';
-import { Switch, Route } from 'react-router-dom';
 import Navbar from './Navbar';
-import OmegaMutants from './OmegaMutants';
-import OmegaMutantDetails from './OmegaMutantDetails';
+import Routes from './Routes';
 import './App.css';
 
 class App extends Component  {
@@ -94,20 +92,11 @@ class App extends Component  {
     ]
   }
   render() {
-    const getMutant = props => {
-      let alias = props.match.params.alias;
-      let currentMutant = this.props.omegas.find(
-        omegas => omegas.alias.toLowerCase() === alias.toLowerCase()
-      ); 
-      return <OmegaMutantDetails {...props} omega={currentMutant} />;
-    }
+    
     return (
       <div>
       <Navbar omegas={this.props.omegas} />
-      <Switch>
-        <Route exact path='/omegas' render={() => <OmegaMutants omegas={this.props.omegas}/>} />
-        <Route exact path='/omegas/:alias' render={getMutant} />
-      </Switch>
+      <Routes omegas={this.props.omegas} />
       </div>
     )
   } 

@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 class Navbar extends Component {
     render() {
         const omegaLinks = this.props.omegas.map(omega => (
-            <li className="nav-item" key={omega.alias}>
+            <li className="nav-item" key={omega.alias} data-toggle="collapse" data-target="#navbarNav">
                 <NavLink exact to={`/omegas/${omega.alias}`} className="nav-link">{omega.alias}</NavLink>
             </li>
         ))
@@ -25,8 +25,8 @@ class Navbar extends Component {
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
                 <ul className="navbar-nav">
-                    <li className="nav-item">
-                        <NavLink to="/omegas" className="nav-link">Home</NavLink> 
+                    <li className="nav-item"  >
+                        <NavLink to="/omegas" className="nav-link" data-toggle="collapse" data-target="#navbarNav">Home</NavLink> 
                     </li>
                     {omegaLinks}
                 </ul>
